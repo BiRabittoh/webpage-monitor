@@ -7,6 +7,6 @@ if __name__ == "__main__":
     monitor(os.getenv("url"),
             os.getenv("email"),
             os.getenv("password"),
-            interval=os.getenv("interval")
+            interval=int(os.getenv("interval"))
            )
     
