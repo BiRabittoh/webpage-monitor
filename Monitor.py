@@ -1,5 +1,5 @@
 import requests
-import time
+from time import ctime, sleep
 import smtplib
 
 DEFAULT_INTERVAL = 30
@@ -42,12 +42,13 @@ def monitor(url: str, sender_email: str, sender_password: str,
         except Exception as e:
             print(f"Error sending email: {e}")
 
-    print(f"{time.ctime()}: started monitoring {url}.")
+    print(f"{ctime()}: started monitoring {url}.")
     while True:
+        print(f"{ctime()}: downloading page.")
         response = requests.get(url)
         current_content = response.text
         if previous_content and previous_content != current_content:
-            print(f"{time.ctime()}: change detected.")
+            print(f"{ctime()}: change detected.")
             send_notification(previous_content, current_content)
         previous_content = current_content
-        time.sleep(interval * 60) # wait for `interval` minutes
+        sleep(interval * 60) # wait for `interval` minutes
