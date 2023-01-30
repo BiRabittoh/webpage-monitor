@@ -2,7 +2,7 @@ import requests
 import time
 import smtplib
 
-DEFAULT_INTERVAL = 5
+DEFAULT_INTERVAL = 30
 DEFAULT_SMTP_URL = "smtp.gmail.com"
 DEFAULT_SMTP_PORT = 587
 DEFAULT_SUBJECT = "Webpage Content Changed"
